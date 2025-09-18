@@ -1,0 +1,1 @@
+import * as ProductModel from "../models/productModel"; 
