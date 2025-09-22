@@ -8,6 +8,13 @@ export async function getAllProduct(){
 }
 
 //Mengambil produk berdasarkan ID
+export async function getProductByName(name) {
+    const result = await db.query("SELECT * FROM product WHERE LOWER(name) LIKE LOWER('%'|| $1 ||'%');",[name]);
+    return result.rows;
+}
+
+
+
 export async function getProductById(id){
     const result = await db.query("SELECT * FROM product WHERE id = ($1);",[id]);
     if(!result.rows[0]){
